@@ -1,0 +1,36 @@
+/* Customize container */
+@media (min-width: 1030px) {
+  .container {
+    max-width: 80%;
+  }
+}
+
+.img-rounded {
+  width: 150px;
+}
+
+.index-container {
+  background-color: rgba(77, 0, 38, 0.8);
+}
+
+.usr-info {
+  padding-left: 5px;
+  text-align: left;
+}
+
+.fa {
+  font-size:1.5em;
+}
+
+.gallery-messages-container-dark {
+    background-color: rgba(26, 0, 13, 0.8);
+
+}
+
+.gallery-photos-margin {
+    margin: 20px;
+}
+
+.search-btn-margin {
+  margin-right: 250px;
+}

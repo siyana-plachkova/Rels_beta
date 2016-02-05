@@ -12,5 +12,17 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
+});
+
+Route::get('/registration', function() {
+    return view('registration');
+});
+
+Route::get('/profile', function() {
+    return view('profile');
+});
+
+Route::get('/messages', function() {
+    return view('messages');
 });
