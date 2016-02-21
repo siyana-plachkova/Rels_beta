@@ -178,9 +178,8 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <labe>
-
-                    </labe>
+                  <label for="comment">About me</label>
+                  <textarea class="form-control" rows="5" id="comment"></textarea>
                 </div>
 
                 <label for="basic-url">Profile photo URL</label>
