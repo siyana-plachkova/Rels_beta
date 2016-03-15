@@ -10,16 +10,16 @@
         <div class="form-container">
             <form>
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                    <label for="email1">Email address</label>
+                    <input type="email" class="form-control" id="email1" name="email" placeholder="Email">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                 </div>
                 <div class="form-group">
                     <label for="password-confirm">Confirm Password</label>
-                    <input type="password" class="form-control" id="password-confirm" name="password-confirm" placeholder="Confirm Password">
+                    <input type="password" class="form-control" id="password-confirm" name="password_confirmation" placeholder="Confirm Password">
                 </div>
                 <div class="form-group">
                     <label for="name">Name</label>
@@ -49,7 +49,7 @@
                 </div>
                 <div class="form-group">
                     <label for="birth_date">Birth date:</label>
-                    <select id="month" class="form-control bottom-margin" name="birth_date">
+                    <select id="month" class="form-control bottom-margin" name="birth_month">
                         <option selected="selected"> - Month - </option>
                         <option value="January">January</option>
                         <option value="Febuary">Febuary</option>
@@ -64,7 +64,7 @@
                         <option value="November">November</option>
                         <option value="December">December</option>
                     </select>
-                    <select id="day" class="form-control bottom-margin" name="birth_date">
+                    <select id="day" class="form-control bottom-margin" name="birth_day">
                         <option selected="selected"> - Day - </option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -98,7 +98,7 @@
                         <option value="30">30</option>
                         <option value="31">31</option>
                     </select>
-                    <select id="year" class="form-control bottom-margin" name="birth_date">
+                    <select id="year" class="form-control bottom-margin" name="birth_year">
                         <option value="year" selected="selected"> - Year - </option>
                         <option value="1996">1996</option>
                         <option value="1995">1995</option>
@@ -142,50 +142,50 @@
                 </div>
                 <div class="form-group">
                     <label for="location">Location</label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                    <input type="text" class="form-control" id="location" name="location" placeholder="Location">
                 </div>
                 <div class="form-group">
                     <label for="interests">Interests</label>
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox"> Listening to music
+                            <input type="checkbox" name="interest"> Listening to music
                         </label>
                     </div>
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox"> Sports
+                            <input type="checkbox" name="interest"> Sports
                         </label>
                     </div>
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox"> Art
+                            <input type="checkbox" name="interest"> Art
                         </label>
                     </div>
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox"> Technologies
+                            <input type="checkbox" name="interest"> Technologies
                         </label>
                     </div>
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox"> Science
+                            <input type="checkbox" name="interest"> Science
                         </label>
                     </div>
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox"> Reading books
+                            <input type="checkbox" name="interest"> Reading books
                         </label>
                     </div>
                 </div>
                 <div class="form-group">
-                  <label for="comment">About me</label>
-                  <textarea class="form-control" rows="5" id="comment"></textarea>
+                  <label for="bio">About me</label>
+                  <textarea class="form-control" rows="5" id="bio" name="bio"></textarea>
                 </div>
 
                 <label for="basic-url">Profile photo URL</label>
                 <div class="input-group bottom-margin">
                     <span class="input-group-addon" id="basic-addon3">Add your profile photo</span>
-                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" name="profile_photo">
                 </div>
 
                 <button type="submit" class="btn btn-default btn-red">Join Rels!</button>

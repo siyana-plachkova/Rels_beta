@@ -10,4 +10,9 @@ class Profile extends Model
     {
         return $this->belongsTo('App\User', 'foreign_key');
     }
+
+    public function interest()
+    {
+        return $this->belongsToMany('App\Interest', 'user_interest');
+    }
 }

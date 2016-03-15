@@ -131,3 +131,8 @@ h3.text-muted, .footer p {
 .form-group {
   text-align: left;
 }
+
+.list-group-red .list-group-item:hover, .list-group-red .list-group-item.disabled {
+    background-color: #4d0026;
+    color: #fff;
+}

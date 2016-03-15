@@ -15,9 +15,8 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/registration', function() {
-    return view('registration');
-});
+Route::get('/registration', 'Auth\AuthController@index');
+Route::post('/registration', 'Auth\AuthController@register');
 
 Route::get('/profile', function() {
     return view('profile');
