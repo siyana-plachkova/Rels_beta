@@ -2,7 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Auth;
+
+use Illuminate\Http\Request;
 use App\User;
+use App\Profile;
+use App\Interest;
+use App\Image;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -22,6 +28,8 @@ class AuthController extends Controller
 
     use AuthenticatesAndRegistersUsers;
 
+    protected $redirectTo = '/profile';
+
     /**
      * Create a new authentication controller instance.
      *
@@ -29,29 +37,48 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest', ['except' => 'getLogout']);
+        $this->middleware('guest', ['except' => 'logout']);
     }
 
     public function index()
     {
-        return view('registration');
+        return view('registration', ['errors' => []]);
     }
 
-    public function register()
+    public function register(Request $request)
     {
-        if (Auth::check())
-        {
-
-        }
-
-        $validator = $this->validator(Input::all());
+        $validator = $this->validator($request->all());
 
         if($validator->fails())
         {
+            $request->flashExcept('password');
             $messages = $validator->messages()->toArray();
             return view('registration', ['errors' => $messages]);
         }
 
+        $user = $this->create($request->all());
+
+        Auth::login($user);
+
+        return redirect($this->redirectTo);
+    }
+
+    public function login(Request $request)
+    {
+        if (Auth::attempt(['email' => $request->input('email'),
+                           'password' => $request->input('password')])) {
+            return redirect($this->redirectTo);
+        }
+    }
+
+    public function logout()
+    {
+        if (Auth::check())
+        {
+            Auth::logout();
+        }
+
+        return redirect('/');
     }
 
     /**
@@ -79,10 +106,41 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+
+        $profile = Profile::create([
+            'user_id' => $user->id,
+            'name' => $data['name'],
+            'surname' => $data['surname'],
+            'gender' => $data['gender'],
+            'birth_date' => $data['birth_year'] . '-' . $data['birth_month'] . '-' . $data['birth_day'],
+            'location' => $data['location'],
+            'interested_in' => $data['interested_in'],
+            'description' => $data['bio']
+        ]);
+
+        if (isset($data['interest']))
+        {
+            foreach ($data['interest'] as $interest) {
+                $interest = Interest::firstOrCreate(['name' => $interest]);
+                $profile->interests()->attach($interest->id);
+            }
+        }
+
+        if (isset($data['profile_photo']))
+        {
+            $image = Image::create([
+                'profile_id' => $profile->id,
+                'photo_url' => $data['profile_photo']
+            ]);
+            $profile->profile_photo_id = $image->id;
+            $profile->save();
+        }
+
+        return $user;
     }
 }

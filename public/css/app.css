@@ -91,6 +91,11 @@ body {
   color:#fff;
 }
 
+.btn-small {
+  font-size: 17px !important;
+  padding: 6px 35px !important;
+}
+
 .btn-red {
   border: none;
   color: #fff;

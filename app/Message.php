@@ -8,6 +8,6 @@ class Message extends Model
 {
     public fucntion user()
     {
-        return $this->belongsTo('App\User', 'foreign_key');
+        return $this->belongsTo('App\User');
     }
 }

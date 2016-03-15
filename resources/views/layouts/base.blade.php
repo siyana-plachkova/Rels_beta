@@ -25,12 +25,13 @@
                 <ul class="nav nav-pills pull-right nav-red">
                     @yield('searchbar')
                     @yield('notifications')
-                    <li role="presentation" class="active"><a href="#">Home</a></li>
-                    <li role="presentation"><a href="#">About</a></li>
-                    <li role="presentation"><a href="#">Contact Us</a></li>
+                    @if (Auth::check())
+                        <li role="presentation" class="active"><a href="/profile">My profile</a></li>
+                        <li role="presentation"><a href="/auth/logout">Logout</a></li>
+                    @endif
                 </ul>
             </nav>
-            <h3 class="text-muted">Rels</h3>
+            <h3 class="text-muted"><a href="/" style="color: #fff; text-decoration: none;">Rels</a></h3>
         </div>
 
         @yield('content')

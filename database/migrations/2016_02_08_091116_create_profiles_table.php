@@ -21,8 +21,9 @@ class CreateProfilesTable extends Migration
             $table->string('gender');
             $table->string('interested_in');
             $table->date('birth_date');
-            $table->string('locaition');
+            $table->string('location');
             $table->string('description', 255);
+            $table->integer('profile_photo_id')->unsigned()->nullable();
             $table->timestamps();
         });
     }

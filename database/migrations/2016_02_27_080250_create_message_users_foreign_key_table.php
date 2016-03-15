@@ -13,7 +13,8 @@ class CreateMessageUsersForeignKeyTable extends Migration
     public function up()
     {
         Schema::table('messages', function (Blueprint $table) {
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('to_user')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -26,6 +27,7 @@ class CreateMessageUsersForeignKeyTable extends Migration
     {
         Schema::table('messages', function (Blueprint $table) {
             $table->dropForeign('messages_user_id_foreign');
+            $table->dropForeign('messages_to_user_foreign');
         });
     }
 }

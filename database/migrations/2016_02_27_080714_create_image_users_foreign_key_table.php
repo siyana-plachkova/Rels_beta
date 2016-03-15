@@ -13,7 +13,7 @@ class CreateImageUsersForeignKeyTable extends Migration
     public function up()
     {
         Schema::table('images', function (Blueprint $table) {
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('profile_id')->references('id')->on('profiles')->onDelete('cascade');
         });
     }
 
@@ -25,7 +25,7 @@ class CreateImageUsersForeignKeyTable extends Migration
     public function down()
     {
         Schema::table('images', function (Blueprint $table) {
-            $table->dropForeign('images_user_id_foreign');
+            $table->dropForeign('images_profile_id_foreign');
         });
     }
 }

@@ -36,17 +36,12 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     public function profile()
     {
-        return $this->hasOne('App\Profile', 'foreign_key');
+        return $this->hasOne('App\Profile');
     }
 
-    public function image()
+    public function messages()
     {
-        return $this->hasMany('App\Image', 'foreign_key');
-    }
-
-    public function massage()
-    {
-        return $this->hasMany('App\Message', 'foreign_key');
+        return $this->hasMany('App\Message');
     }
 
 }
