@@ -7,7 +7,7 @@
 @section('content')
     <div class="jumbotron index-container">
         <h1>Welcome to Rels</h1>
-        <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+        <p class="lead">Register for free to meet new people and start dating today!</p>
         <div class="form-container">
             <form method="post" action="/auth/login">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">

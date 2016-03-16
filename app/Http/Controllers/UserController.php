@@ -50,6 +50,10 @@ class UserController extends Controller
 
         $queries = explode(' ', $search_query);
 
+        if($queries[0] == "all" && $queries[1] == "users") {
+
+        }
+
         $profiles = \App\Profile::where(function($query) use ($queries) {
             $query = $query->orWhere('name', $queries[0]);
             $query = $query->orWhere('surname', $queries[0]);
